@@ -25,7 +25,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
     
-    @GetMapping("/api/v1/usuarios")
+    @GetMapping
     public List<Usuario> getAllUsuarios() {
         return usuarioService.getAll();
     }
