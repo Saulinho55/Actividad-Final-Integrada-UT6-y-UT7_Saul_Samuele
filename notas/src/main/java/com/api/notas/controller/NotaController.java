@@ -1,10 +1,13 @@
 package com.api.notas.controller;
 
+import java.util.List;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.notas.model.Nota;
 import com.api.notas.service.NotaService;
 import com.api.notas.service.UsuarioService;
 
@@ -21,5 +24,7 @@ public class NotaController {
     }
 
     @GetMapping
-    public Nota getById
+    public List<Nota> getAllNotas() {
+        return notaService.getAll();
+    } 
 }
