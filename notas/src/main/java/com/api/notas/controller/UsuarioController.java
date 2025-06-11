@@ -17,39 +17,39 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 
-@RestController
-@RequestMapping("/api/v1/usuarios")
-public class UsuarioController {
+@RestController // Controlador REST para manejar las solicitudes relacionadas con los usuarios
+@RequestMapping("/api/v1/usuarios") // Controlador REST para manejar las solicitudes relacionadas con los usuarios
+public class UsuarioController { 
 
-    private final UsuarioService usuarioService;
+    private final UsuarioService usuarioService; // Servicio para manejar la lógica de negocio relacionada con los usuarios
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService) { // Constructor para inyectar servicio de usuarios
         this.usuarioService = usuarioService;
     }
     
-    @GetMapping
-    public List<Usuario> getAllUsuarios() {
-        return usuarioService.getAll();
+    @GetMapping // Ruta para obtener todos los usuarios
+    public List<Usuario> getAllUsuarios() {  
+        return usuarioService.getAll(); // Método para obtener todos los usuarios
     }
 
-    @GetMapping("/{id}")
-    public Usuario getUsuarioById(@PathVariable @Positive Long id) {
-        return usuarioService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+    @GetMapping("/{id}") // Ruta para obtener un usuario específico por su ID
+    public Usuario getUsuarioById(@PathVariable @Positive Long id) { // Método para obtener un usuario por su ID
+        return usuarioService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado")); // Si no se encuentra el usuario, se lanza una excepción con estado NOT_FOUND
     }
 
-    @PostMapping
-    public Usuario createUsuario(@Valid @RequestBody Usuario usuario) {
-        return usuarioService.save(usuario);
+    @PostMapping // Ruta para crear un nuevo usuario
+    public Usuario createUsuario(@Valid @RequestBody Usuario usuario) { // Método para crear un nuevo usuario
+        return usuarioService.save(usuario); // Método para guardar un nuevo usuario
     }
 
-    @PutMapping("/{id}")
-    public Usuario updateUsuario(@PathVariable @Positive Long id, @RequestBody Usuario usuario) {
-        return usuarioService.update(id, usuario);
+    @PutMapping("/{id}") // Ruta para actualizar un usuario existente por su ID
+    public Usuario updateUsuario(@PathVariable @Positive Long id, @RequestBody Usuario usuario) { // Método para actualizar un usuario existente
+        return usuarioService.update(id, usuario); // Método para actualizar un usuario existente
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable @Positive Long id) {
-        usuarioService.deleteById(id);
+    @DeleteMapping("/{id}") // Ruta para eliminar un usuario por su ID
+    public void delete(@PathVariable @Positive Long id) { // Método para eliminar un usuario por su ID
+        usuarioService.deleteById(id); // Método para eliminar un usuario por su ID
     }
 
 }
