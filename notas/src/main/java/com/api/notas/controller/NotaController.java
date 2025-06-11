@@ -49,7 +49,7 @@ public class NotaController {
     }
 
     @GetMapping("/{id}")
-    public Nota getById(@PathVariable Long id) {
+    public Nota getById(@PathVariable @Positive Long id) {
         return notaService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,7 +33,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Usuario getUsuarioById(@PathVariable Long id) {
+    public Usuario getUsuarioById(@PathVariable @Positive Long id) {
         return usuarioService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
     }
 
@@ -41,12 +43,12 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public Usuario updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+    public Usuario updateUsuario(@PathVariable @Positive Long id, @RequestBody Usuario usuario) {
         return usuarioService.update(id, usuario);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable @Positive Long id) {
         usuarioService.deleteById(id);
     }
 
