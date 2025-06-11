@@ -23,22 +23,22 @@ Para poder usarlo debe editar: application.properties con el puerto y datos corr
 Para poder usar el Postman, debe ejecutar y usar los diferentes checkpoints:
 
 -UsuarioController /api/v1/usuarios
-  GET /usuarios
-  GET /usuarios/{id}
-  POST /usuarios
-  PUT /usuarios/{id}
-  DELETE /usuarios/{id}
+ | GET /usuarios
+ | GET /usuarios/{id}
+ | POST /usuarios
+ | PUT /usuarios/{id}
+ | DELETE /usuarios/{id}
   
 -UsuarioController /api/v2
   POST /sign-in
   
 -NotaController /api/v1/notas
-  GET /notas
-  GET /notas?usuarioId={id}&order={asc|desc}
-  GET /notas/{id}
-  POST /notas?usuarioId={id}
-  PUT /notas/{id}
-  DELETE /notas/{id}
+  | GET /notas
+  | GET /notas?usuarioId={id}&order={asc|desc}
+  |GET /notas/{id}
+  | POST /notas?usuarioId={id}
+  | PUT /notas/{id}
+  | DELETE /notas/{id}
 
 Y en raw escribir codigo JSON y ejecutarlo según el checkpoint. 
 
