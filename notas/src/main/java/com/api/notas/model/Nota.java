@@ -13,23 +13,23 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "notas")
-public class Nota {
+@Entity // Define la entidad Nota
+@Table(name = "notas") // Define el nombre de la tabla en la base de datos
+public class Nota { // Clase que representa una nota en el sistema
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Genera un ID único para cada nota
+    private Long id;  // Identificador único de la nota
 
-    @NotBlank(message = "El título no puede estar en blanco")
-    private String titulo;
+    @NotBlank(message = "El título no puede estar en blanco") // Validación para asegurarse de que el título no esté en blanco
+    private String titulo; // Título de la nota
 
-    @Lob
-    private String contenido;
-    private LocalDateTime fechaCreacion = LocalDateTime.now();
-    @ManyToOne(optional = false)
-    @JsonIgnore
+    @Lob // Indica que el campo contenido puede ser grande (tipo texto largo)
+    private String contenido;  // Contenido de la nota, puede ser un texto largo
+    private LocalDateTime fechaCreacion = LocalDateTime.now(); // Fecha de creación de la nota, se inicializa con la fecha y hora actual
+    @ManyToOne(optional = false) // Relación muchos a uno con la entidad Usuario, no puede ser nulo
+    @JsonIgnore // Ignora este campo en la serialización JSON para evitar ciclos
     private Usuario usuario;
-    
+    // Getters y Setters para acceder y modificar los campos de la nota
     public Long getId() {
         return id;
     }
