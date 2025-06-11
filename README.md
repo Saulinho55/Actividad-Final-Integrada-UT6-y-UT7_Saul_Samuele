@@ -10,13 +10,13 @@ src/
 ├── main/
 │ ├── java/
 │ │ └── com/tu_usuario/notas/
-│ │ ├── controller/  Controladores REST
+│ │ ├── controller/  -Controladores REST
 │ │ ├── model/ Modelos
-│ │ ├── repository/ Repositorios JPA
-│ │ ├── service/ Servicios
+│ │ ├── repository/ -Repositorios JPA
+│ │ ├── service/ -Servicios
 │ │ └── NotasApiApplication.java
 │ └── resources/
-│ ├── application.properties # Configuración de la app
+│ ├── application.properties -Configuración de la app
 
 Para poder usarlo debe editar: application.properties con el puerto y datos correctos para poder conectarlo a el MySQL Workbench. Una vez configurado, puede administrar la base de datos con MySQL Workbench utilizando los mismos datos de conexión para visualizar y modificar las tablas y registros.
 
@@ -28,8 +28,10 @@ Para poder usar el Postman, debe ejecutar y usar los diferentes checkpoints:
   POST /usuarios
   PUT /usuarios/{id}
   DELETE /usuarios/{id}
+  
 -UsuarioController /api/v2
   POST /sign-in
+  
 -NotaController /api/v1/notas
   GET /notas
   GET /notas?usuarioId={id}&order={asc|desc}
